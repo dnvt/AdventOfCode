@@ -1,7 +1,7 @@
 const fs = require("fs")
 let day = "day01"
 
-const wordToDigit = (word) => {
+function wordToDigit(word) {
   switch (word) {
     case "one":
       return 1
@@ -28,7 +28,7 @@ const wordToDigit = (word) => {
   }
 }
 
-const findMatchingSuffix = (input, regex) => {
+function findMatchingSuffix(input, regex) {
   const matches = input.matchAll(regex)
   let lastMatch
 
@@ -46,12 +46,12 @@ const findMatchingSuffix = (input, regex) => {
   }
 }
 
-const processInput = (day, processFunc) => {
+function processInput(day, processFunc) {
   let input = fs.readFileSync(day + ".txt", "utf8").split("\n")
   return processFunc(input)
 }
 
-const part1 = () => {
+function part1() {
   return processInput(day, (input) =>
     input
       .map((line) => {
@@ -62,7 +62,7 @@ const part1 = () => {
   )
 }
 
-const part2 = () => {
+function part2() {
   return processInput(day, (input) =>
     input
       .map((line) => {
@@ -79,7 +79,7 @@ const part2 = () => {
   )
 }
 
-const run = (arg) => {
+function run(arg) {
   switch (arg) {
     case "part1":
       console.log(part1())
